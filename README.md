@@ -142,10 +142,10 @@ Metrics include: - HTTP request count - Basic application availability
 
 ## License
 
-MIT License
+This project is part of the HiAzubi platform. See the main repository for license information.
 
 ------------------------------------------------------------------------
 
-## Author
+## Support
 
-Created for learning and demonstration purposes.
+For support and questions, please contact the HiAzubi development team.
