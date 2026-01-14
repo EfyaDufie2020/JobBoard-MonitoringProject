@@ -1,0 +1,55 @@
+cat > grafana/provisioning/dashboards/alerts.json << 'EOF'
+{
+  "dashboard": {
+    "title": "Alertmanager Alerts",
+    "description": "View all alerts from Alertmanager",
+    "tags": ["alerts", "monitoring"],
+    "style": "dark",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Active Alerts",
+        "type": "alertlist",
+        "gridPos": {"h": 10, "w": 24, "x": 0, "y": 0},
+        "datasource": "Alertmanager",
+        "targets": [{}],
+        "options": {
+          "show": "current",
+          "limit": 50,
+          "sortOrder": 1,
+          "stateFilter": ["alerting", "pending"],
+          "dashboardFilter": "",
+          "alertName": ""
+        }
+      },
+      {
+        "id": 2,
+        "title": "Alerts by Severity",
+        "type": "bargauge",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 10},
+        "datasource": "Prometheus",
+        "targets": [{
+          "expr": "count by (severity) (ALERTS{alertstate=\"firing\"})",
+          "legendFormat": "{{severity}}",
+          "instant": true
+        }],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "thresholds": {
+              "steps": [
+                {"color": "green", "value": 0},
+                {"color": "yellow", "value": 1},
+                {"color": "red", "value": 5}
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "time": {"from": "now-1h", "to": "now"},
+    "refresh": "10s"
+  },
+  "overwrite": true
+}
+EOFdocker-compose restart grafana

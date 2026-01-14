@@ -20,4 +20,3 @@ groups:
         annotations:
           summary: "High CPU load detected"
           description: "CPU load is above 80% for 2 minutes"
-          

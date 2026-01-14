@@ -12,14 +12,35 @@ alerting:
           - alertmanager:9093
 
 scrape_configs:
+
+# Monitor Prometheus
   - job_name: 'prometheus'
     static_configs:
       - targets: ['localhost:9090']
       
+  
+# Monitor Alertmanager
   - job_name: 'alertmanager'
     static_configs:
       - targets: ['alertmanager:9093']
-      
+
+ # Monitor Node Exporter     
   - job_name: 'node-exporter'
     static_configs:
       - targets: ['node-exporter:9100']
+
+
+
+  # Monitor Grafana
+  - job_name: 'grafana'
+    static_configs:
+      - targets: ['grafana:3000']
+    metrics_path: '/metrics'
+    scrape_interval: 30s
+    scheme: http
+    
+  # Monitor Docker containers (auto-discovery)
+  - job_name: 'docker'
+    static_configs:
+      - targets: ['host.docker.internal:9323']  # Docker metrics endpoint
+    scrape_interval: 30s
