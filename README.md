@@ -1,8 +1,3 @@
-I couldn’t fetch the contents of your GitHub repo directly, so I’ll draft a **README** based on what your monitoring project likely includes and what you need to do to **set up Alertmanager + Prometheus + Grafana** with metrics visualized and alerts working.
-
-Use this as your **README.md** in the repo. Fill in specific details (like service names, ports, or screenshots) from your actual files.
-
----
 
 # JobBoard Monitoring Project
 
@@ -29,7 +24,7 @@ This makes deployment simple and repeatable.
 
 ```
 [Application] → [Prometheus] → [Alertmanager] → [Grafana]
-                                  ↳ Notifications (email, Slack, etc.)
+                                  ↳ Notifications (email,Ms-Teams, etc.)
 ```
 
 * Prometheus collects metrics from targets and evaluates alert rules.
@@ -207,14 +202,5 @@ You can also integrate Alertmanager dashboards to view alert states. ([Grafana L
 
 ## 🧾 License
 
-Specify the project license here (MIT, Apache‑2.0, etc.)
+The project license is MIT
 
----
-
-If you share the actual contents of your repo (e.g., docker‑compose file, config files), I can tailor this README to match exact paths, commands, and examples.
-
-[1]: https://grafana.com/grafana/dashboards/9578-alertmanager/?utm_source=chatgpt.com "Alertmanager | Grafana Labs"
-[2]: https://grafana.com/docs/grafana/latest/alerting/fundamentals/alertmanager/?utm_source=chatgpt.com "Configure Alertmanagers | Grafana documentation"
-[3]: https://github.com/prometheus/alertmanager?utm_source=chatgpt.com "GitHub - prometheus/alertmanager: Prometheus Alertmanager"
-[4]: https://grafana.com/docs/grafana/latest/datasources/alertmanager/?utm_source=chatgpt.com "Alertmanager data source | Grafana documentation"
-[5]: https://github.com/grafana/demo-prometheus-and-grafana-alerts?utm_source=chatgpt.com "GitHub - grafana/demo-prometheus-and-grafana-alerts: Docker Compose setup for demonstrating alerting features in Prometheus and Grafana"
